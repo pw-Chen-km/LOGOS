@@ -1,0 +1,7 @@
+output*/
+logs/
+*.log
+.DS_Store
+__pycache__/
+*.pdf
+.venv/
