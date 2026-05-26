@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logos2"
+version = "2.0.0"
+description = "Paper-skill-centered research management and survey QA."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "LOGOS contributors" },
+]
+keywords = [
+    "literature-review",
+    "paper-survey",
+    "research-management",
+    "retrieval-augmented-generation",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+neo4j = ["neo4j>=5.0.0"]
+docling = [
+    "docling>=2.0.0",
+    "pandas>=2.2,<3",
+    "numexpr>=2.10",
+    "bottleneck>=1.4",
+    "scipy>=1.14",
+    "scikit-learn>=1.5",
+]
+evoscientist = ["EvoScientist>=0.1.1"]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.5",
+    "mypy>=1.0.0",
+]
+all = [
+    "neo4j>=5.0.0",
+    "docling>=2.0.0",
+    "pandas>=2.2,<3",
+    "numexpr>=2.10",
+    "bottleneck>=1.4",
+    "scipy>=1.14",
+    "scikit-learn>=1.5",
+    "EvoScientist>=0.1.1",
+]
+
+[project.scripts]
+logos2 = "logos2.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["logos2*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "integration: tests that require external tools, network services, or EvoScientist runtime",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "PT", "PLE", "RUF"]
+ignore = ["E501"]

@@ -1,0 +1,51 @@
+paper_navigator:
+  mode: survey_agent
+  # Leave null to auto-detect real filesystem installs:
+  # 1. LOGOS_PAPER_NAVIGATOR_DIR
+  # 2. ./skills/paper-navigator
+  # 3. ~/.evoscientist/skills/paper-navigator
+  # 4. ~/.config/evoscientist/skills/paper-navigator
+  # 5. ../EvoSkills/skills/paper-navigator
+  skill_dir: null
+  scripts_dir: null
+  references_dir: null
+  papers_dir_env: PAPERS_DIR
+  artifact_fallback: true
+  max_papers: 50
+  citation_traversal_depth: 1
+
+evoscientist:
+  enabled: true
+  provider: deepseek
+  model: deepseek-v4-pro
+  use_tavily: true
+
+survey_agent:
+  enabled: true
+  workspace_subdir: evo_survey_agent
+  artifact_filename: logos_survey_artifact.json
+  timeout_seconds: 1800
+  auto_approve: true
+  auto_mode: true
+  enable_async_subagents: false
+  write_reports: true
+  fallback_to_direct: true
+
+runtime:
+  runs_dir: runs
+  artifacts_dir: artifacts
+  paper_library_dir: paper_library
+  paper_skills_dir: paper_skills
+
+graph:
+  backend: sqlite
+  sqlite_path: graph_index.sqlite
+
+neo4j:
+  uri_env: NEO4J_URI
+  user_env: NEO4J_USER
+  password_env: NEO4J_PASSWORD
+
+docling:
+  enabled: true
+  force_reextract: false

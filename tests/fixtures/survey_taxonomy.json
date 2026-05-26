@@ -1,0 +1,167 @@
+{
+  "taxonomy_id": "tax_graphrag_2024",
+  "request_id": "req_graphrag_survey",
+  "themes": [
+    {
+      "theme_id": "T1",
+      "name": "Graph-Based Retrieval",
+      "description": "Methods leveraging graph structure for information retrieval",
+      "keywords": ["graph", "retrieval", "knowledge graph"]
+    },
+    {
+      "theme_id": "T2",
+      "name": "Multi-Hop Reasoning",
+      "description": "Methods for answering questions requiring multiple reasoning steps",
+      "keywords": ["multi-hop", "reasoning", "chain-of-thought"]
+    },
+    {
+      "theme_id": "T3",
+      "name": "Streaming Knowledge",
+      "description": "Methods for handling dynamic and streaming knowledge sources",
+      "keywords": ["streaming", "dynamic", "real-time"]
+    }
+  ],
+  "subthemes": [
+    {
+      "subtheme_id": "ST1_1",
+      "theme_id": "T1",
+      "name": "Spectral Graph Methods",
+      "description": "Using spectral analysis for graph understanding"
+    },
+    {
+      "subtheme_id": "ST1_2",
+      "theme_id": "T1",
+      "name": "Community Detection",
+      "description": "Graph clustering and community-based retrieval"
+    }
+  ],
+  "paper_assignments": [
+    {
+      "paper_id": "arxiv:2401.12345",
+      "theme_id": "T1",
+      "subtheme_id": "ST1_1",
+      "confidence": 0.92
+    },
+    {
+      "paper_id": "arxiv:2402.67890",
+      "theme_id": "T1",
+      "subtheme_id": "ST1_2",
+      "confidence": 0.88
+    },
+    {
+      "paper_id": "arxiv:2403.11111",
+      "theme_id": "T3",
+      "subtheme_id": null,
+      "confidence": 0.85
+    }
+  ],
+  "method_families": [
+    {
+      "family_id": "MF1",
+      "name": "Spectral Graph Methods",
+      "description": "Methods based on spectral graph theory and connectivity analysis",
+      "representative_papers": ["arxiv:2401.12345"]
+    },
+    {
+      "family_id": "MF2",
+      "name": "Community Detection Methods",
+      "description": "Graph clustering-based retrieval approaches",
+      "representative_papers": ["arxiv:2402.67890"]
+    },
+    {
+      "family_id": "MF3",
+      "name": "Incremental Update Methods",
+      "description": "Methods for efficient graph updates",
+      "representative_papers": ["arxiv:2403.11111"]
+    }
+  ],
+  "problem_clusters": [
+    {
+      "cluster_id": "PC1",
+      "problem_summary": "Graph fragmentation in retrieval systems",
+      "related_papers": ["arxiv:2401.12345"]
+    },
+    {
+      "cluster_id": "PC2",
+      "problem_summary": "Static graph limitations for evolving knowledge",
+      "related_papers": ["arxiv:2402.67890", "arxiv:2403.11111"]
+    }
+  ],
+  "benchmark_matrix": [
+    {
+      "benchmark_name": "HotpotQA",
+      "paper_ids": ["arxiv:2401.12345", "arxiv:2402.67890"],
+      "metric_names": ["EM", "F1"]
+    },
+    {
+      "benchmark_name": "2WikiMQA",
+      "paper_ids": ["arxiv:2402.67890"],
+      "metric_names": ["Accuracy"]
+    },
+    {
+      "benchmark_name": "StreamingQA",
+      "paper_ids": ["arxiv:2403.11111"],
+      "metric_names": ["Latency", "Throughput"]
+    }
+  ],
+  "dataset_matrix": [
+    {
+      "dataset_name": "Wikipedia Graph",
+      "paper_ids": ["arxiv:2401.12345", "arxiv:2402.67890"],
+      "task_types": ["multi-hop QA"]
+    },
+    {
+      "dataset_name": "PubMed Graph",
+      "paper_ids": ["arxiv:2401.12345"],
+      "task_types": ["biomedical QA"]
+    },
+    {
+      "dataset_name": "Twitter Stream",
+      "paper_ids": ["arxiv:2403.11111"],
+      "task_types": ["streaming QA"]
+    }
+  ],
+  "baseline_matrix": [
+    {
+      "baseline_name": "GraphRAG",
+      "paper_ids": ["arxiv:2401.12345"]
+    },
+    {
+      "baseline_name": "VectorRAG",
+      "paper_ids": ["arxiv:2401.12345"]
+    },
+    {
+      "baseline_name": "Dense Passage Retrieval",
+      "paper_ids": ["arxiv:2402.67890"]
+    }
+  ],
+  "candidate_relations": [
+    {
+      "source_paper_id": "arxiv:2401.12345",
+      "target_paper_id": "arxiv:2402.67890",
+      "relation_type": "same_benchmark",
+      "status": "candidate",
+      "source": "survey_taxonomy",
+      "confidence": 0.72,
+      "rationale": "Both papers evaluate on HotpotQA benchmark"
+    },
+    {
+      "source_paper_id": "arxiv:2401.12345",
+      "target_paper_id": "arxiv:2402.67890",
+      "relation_type": "same_method_family",
+      "status": "candidate",
+      "source": "survey_taxonomy",
+      "confidence": 0.65,
+      "rationale": "Both are GraphRAG methods but use different techniques"
+    },
+    {
+      "source_paper_id": "arxiv:2402.67890",
+      "target_paper_id": "arxiv:2403.11111",
+      "relation_type": "related_problem",
+      "status": "candidate",
+      "source": "survey_taxonomy",
+      "confidence": 0.68,
+      "rationale": "Both address GraphRAG limitations in different ways"
+    }
+  ]
+}

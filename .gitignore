@@ -1,7 +1,45 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+build/
+dist/
+.venv/
+venv/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Runtime outputs
 output*/
 logs/
+runs/
+artifacts/
+paper_skills/
+paper_library/
+test_paper_skills/
+graph_index.sqlite
+*.sqlite
+*.sqlite3
+*.db
 *.log
-.DS_Store
-__pycache__/
+
+# Local external tool installs and downloaded paper content
+skills/
 *.pdf
-.venv/
+
+# Local scratch images
+demo.png
+experimet.png
+explore.png
